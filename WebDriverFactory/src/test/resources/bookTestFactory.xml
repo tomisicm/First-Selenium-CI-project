@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="bookingTestFactory" parallel="tests" thread-count="2">
+<parameter name="url" value="http://p.sixsentix.com/ticketbooking/	" />
+  <test thread-count="1" name="bookingTestFirefox">
+  <parameter name="browser" value="chrome" />
+    <classes>
+      	<class name="factory.karteautobuske.BookingRegressionTFactory"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
