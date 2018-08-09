@@ -3,7 +3,7 @@
 <suite name="bookingTestFactory" parallel="tests" thread-count="2">
 <parameter name="url" value="http://p.sixsentix.com/ticketbooking/	" />
   <test thread-count="1" name="bookingTestFirefox">
-  <parameter name="browser" value="chrome" />
+  <!--  <parameter name="browser" value="chrome" />  -->
     <classes>
       	<class name="factory.karteautobuske.BookingRegressionTFactory"/>
     </classes>

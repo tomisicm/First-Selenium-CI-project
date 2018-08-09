@@ -7,11 +7,11 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import utils.DriverFactory;
+import driversetup.DriverFactory;
 
 
 
-public class BasicTest001WD extends DriverFactory{
+public class BasicTest001WD extends DriverFactory {
 	
 	private void googleExampleThatSearchesFor(final String searchString) throws Exception {
 			

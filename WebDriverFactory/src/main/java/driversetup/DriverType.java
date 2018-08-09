@@ -1,17 +1,21 @@
-package utils;
+package driversetup;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.safari.SafariDriver;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public enum DriverType implements DriverSetup {
+	
+	
 	
 	FIREFOX {
 		public DesiredCapabilities getDesiredCapabilities() {
@@ -56,11 +60,34 @@ public enum DriverType implements DriverSetup {
 		}
 		
 		public WebDriver getWebDriverObject(DesiredCapabilities	capabilities) {
+			// System.setProperty("webdriver.ie.driver", "D:\\mt\\eclipse-workspace\\AutobuskeKarte\\Utils\\chromedriver.exe");
 			return new InternetExplorerDriver(capabilities);
+		}
+	},
+	
+	PHANTOMJS {
+		public DesiredCapabilities getDesiredCapabilities() {
+			DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
+			final List<String> cliArguments = new ArrayList<String>();
+			
+			cliArguments.add("--web-security=false");
+			cliArguments.add("--ssl-protocol=any");
+			cliArguments.add("--ignore-ssl-errors=true");
+		
+			capabilities.setCapability("phantomjs.cli.args", cliArguments);
+			capabilities.setCapability("takesScreenshot", true);
+			
+			return capabilities;
+		
+		}
+		
+		public WebDriver getWebDriverObject(DesiredCapabilities capabilities) {
+			// System.setProperty("webdriver.ie.driver", "D:\\mt\\eclipse-workspace\\AutobuskeKarte\\Utils\\chromedriver.exe");
+			return new PhantomJSDriver(capabilities);
 		}
 	}
 	
-	//leave for headless execution
+	
 	
 	
 	

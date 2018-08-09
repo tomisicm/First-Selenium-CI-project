@@ -55,10 +55,12 @@ public class injectJQueryExample {
 	    js = (JavascriptExecutor)driver;
 	    
 	    
-	    try {
+	    try 
+	    {
 			injectJQueryExample.enablejQuery(js);
-		} catch (Exception e) {
-
+		} 
+	    catch (Exception e) 
+	    {
 			e.printStackTrace();
 		}
 	    
